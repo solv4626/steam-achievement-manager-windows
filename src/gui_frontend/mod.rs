@@ -1,0 +1,63 @@
+// SPDX-License-Identifier: GPL-3.0-only
+// Copyright (C) 2026 Paul <abonnementspaul (at) gmail.com>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, version 3.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+mod achievement_automatic_view;
+mod achievement_manual_view;
+mod achievement_view;
+mod app_list_view;
+mod app_list_view_callbacks;
+mod app_view;
+mod application_actions;
+mod custom_progress_bar_widget;
+/// Scripting aid for driving the UI from outside; never built into a release.
+#[cfg(debug_assertions)]
+mod dev_widgets;
+mod dialogs;
+mod friend_picker;
+mod gobjects;
+mod gsettings;
+mod i18n;
+mod profile_view;
+mod request;
+mod stat_view;
+mod ui_components;
+mod unlock_queue;
+mod unlock_scheduler;
+mod widgets;
+
+use crate::APP_ID;
+use crate::backend::orchestrator_client::shutdown_and_wait;
+use app_list_view::create_main_ui;
+use gtk::glib::ExitCode;
+use gtk::prelude::{ApplicationExt, ApplicationExtManual};
+
+#[cfg(not(feature = "adwaita"))]
+pub type MainApplication = gtk::Application;
+#[cfg(feature = "adwaita")]
+pub type MainApplication = adw::Application;
+
+pub fn main_ui() -> ExitCode {
+    let main_app = MainApplication::builder()
+        .application_id(APP_ID)
+        .flags(
+            gtk::gio::ApplicationFlags::HANDLES_COMMAND_LINE
+                | gtk::gio::ApplicationFlags::NON_UNIQUE,
+        )
+        .build();
+
+    main_app.connect_command_line(create_main_ui);
+    main_app.connect_shutdown(move |_| shutdown_and_wait());
+    main_app.run()
+}

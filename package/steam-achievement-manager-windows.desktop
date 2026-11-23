@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=steam-achievement-manager-windows
+Exec=/usr/bin/steam-achievement-manager-windows
+Terminal=false
+Type=Application
+Icon=steam-achievement-manager-windows
+Comment=Steam Achievement Manager
+Categories=Game;
+StartupWMClass=steam-achievement-manager-windows;

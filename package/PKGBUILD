@@ -1,0 +1,71 @@
+# Maintainer: JudgeManganese
+# Maintainer: nomis6432
+# Maintainer: yhu420
+
+pkgname=steam-achievement-manager-windows-git
+pkgver=1.4.1.r0.g4953d56
+pkgrel=1
+pkgdesc="Unlock achievements and stats on Steam, and more!"
+url="https://github.com/PaulCombal/steam-achievement-manager-windows"
+license=('GPL-3.0-only')
+arch=('x86_64')
+makedepends=('cargo' 'gtk4' 'pkg-config' 'git')
+depends=('gtk4')
+optdepends=('libadwaita: for Adwaita styling')
+source=("git+https://github.com/PaulCombal/steam-achievement-manager-windows.git")
+sha256sums=('SKIP')
+provides=('steam-achievement-manager-windows')
+conflicts=('steam-achievement-manager-windows')
+
+prepare() {
+  cd "${srcdir}/steam-achievement-manager-windows"
+  export RUSTUP_TOOLCHAIN=stable
+
+  # A versioned 'rust' makedepend can't enforce the MSRV: rustup's 'provides'
+  # are unversioned, so pacman treats rust>=X as unmet even on a new toolchain.
+  local required installed
+  required="$(sed -n 's/^rust-version = "\(.*\)"/\1/p' Cargo.toml)"
+  installed="$(rustc --version | cut -d' ' -f2)"
+  if [ -n "$required" ] && (( $(vercmp "$installed" "$required") < 0 )); then
+    error "steam-achievement-manager-windows requires Rust >= ${required}, but found ${installed}."
+    msg2 "rustup users:        rustup update stable"
+    msg2 "'rust' pkg users:    sudo pacman -Syu rust"
+    return 1
+  fi
+
+  cargo fetch --locked --target host-tuple
+}
+
+build() {
+  cd "${srcdir}/steam-achievement-manager-windows"
+  export CARGO_TARGET_DIR=target
+
+  # Might break builds, just let cargo be in charge
+  unset CFLAGS
+  unset CXXFLAGS
+  unset LDFLAGS
+
+  cargo build --release --frozen
+}
+
+pkgver() {
+    cd "${srcdir}/steam-achievement-manager-windows"
+    git describe --long --tags --abbrev=7 | sed 's/\([^-]*-g\)/r\1/;s/-/./g' | sed 's/^v//'
+}
+
+package() {
+  cd "${srcdir}/steam-achievement-manager-windows"
+
+  install -Dm755 "target/release/steam-achievement-manager-windows" "$pkgdir/usr/bin/steam-achievement-manager-windows"
+  install -Dm644 "assets/icon_64.png" "$pkgdir/usr/share/icons/hicolor/64x64/apps/steam-achievement-manager-windows.png"
+  install -Dm644 "assets/icon_256.png" "$pkgdir/usr/share/icons/hicolor/256x256/apps/steam-achievement-manager-windows.png"
+  install -Dm644 "package/steam-achievement-manager-windows.desktop" "$pkgdir/usr/share/applications/steam-achievement-manager-windows.desktop"
+  install -Dm644 "assets/org.steam-achievement-manager-windows.steam-achievement-manager-windows.gschema.xml" \
+      "$pkgdir/usr/share/glib-2.0/schemas/org.steam-achievement-manager-windows.steam-achievement-manager-windows.gschema.xml"
+
+  # Translations compiled by build.rs (locale/<lang>/LC_MESSAGES/steam-achievement-manager-windows.mo)
+  for mo in locale/*/LC_MESSAGES/steam-achievement-manager-windows.mo; do
+    [ -e "$mo" ] || continue
+    install -Dm644 "$mo" "$pkgdir/usr/share/${mo}"
+  done
+}

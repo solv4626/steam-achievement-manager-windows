@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+    <schema id="org.steam-achievement-manager-windows.steam-achievement-manager-windows" path="/org/steam-achievement-manager-windows/steam-achievement-manager-windows/">
+        <key name="filter-junk" type="b">
+            <default>true</default>
+            <summary>Filter Junk</summary>
+            <description>Whether steam-achievement-manager-windows should filter junk items.</description>
+        </key>
+
+        <key name="filter-only-idling" type="b">
+            <default>false</default>
+            <summary>Only Currently Idling</summary>
+            <description>Whether the app list should show only the apps that are currently being idled.</description>
+        </key>
+
+        <key name="filter-hide-fully-unlocked" type="b">
+            <default>false</default>
+            <summary>Hide Fully Unlocked</summary>
+            <description>Whether to hide apps whose achievements are all unlocked.</description>
+        </key>
+
+        <key name="filter-hide-never-launched" type="b">
+            <default>false</default>
+            <summary>Hide Never Launched</summary>
+            <description>Whether to hide apps that have never been played.</description>
+        </key>
+
+        <key name="filter-hide-no-unlocked" type="b">
+            <default>false</default>
+            <summary>Hide Apps With No Unlocked Achievement</summary>
+            <description>Whether to hide apps where no achievement has been unlocked yet.</description>
+        </key>
+
+        <key name="filter-hide-without-achievements" type="b">
+            <default>false</default>
+            <summary>Hide Apps Without Achievements</summary>
+            <description>Whether to hide apps that expose no achievements at all.</description>
+        </key>
+
+        <key name="sidebar-visible" type="b">
+            <default>true</default>
+            <summary>Show Sidebar</summary>
+            <description>Whether the app list sidebar (profile, filters and sort) is shown.</description>
+        </key>
+
+        <key name="app-theme" type="s">
+            <default>'system'</default>
+            <summary>Application Theme</summary>
+            <description>The preferred color scheme for the application. Valid values are 'system', 'light', and 'dark'.</description>
+        </key>
+
+        <key name="app-language" type="s">
+            <default>''</default>
+            <summary>Application Language</summary>
+            <description>Preferred UI language as a locale code (e.g. 'fr'). An empty value follows the system locale.</description>
+        </key>
+
+        <key name="achievement-language" type="s">
+            <default>''</default>
+            <summary>Achievement Language</summary>
+            <description>Steam language code (e.g. 'french') used to read achievement and stat names from the game's schema. An empty value uses the game's own language.</description>
+        </key>
+
+        <key name="app-sort" type="s">
+            <default>'app_id'</default>
+            <summary>App List Sort Order</summary>
+            <description>How the app list is sorted. Valid values are 'app_id', 'alphabetical', 'last_played', 'playtime', 'completion' (highest completion percentage first), and 'remaining' (fewest achievements left to unlock first).</description>
+        </key>
+
+        <key name="disable-animations" type="b">
+            <default>false</default>
+            <summary>Disable Animations</summary>
+            <description>Whether to disable card hover animations in the app list.</description>
+        </key>
+
+        <key name="appear-in-game" type="b">
+            <default>true</default>
+            <summary>Appear In-Game While Managing</summary>
+            <description>When enabled, managing an app connects to Steam as that app, so friends see you playing it. When disabled, steam-achievement-manager-windows drives Steam's client interface instead and no game is shown on your profile.</description>
+        </key>
+
+        <key name="unlock-mode" type="s">
+            <default>'autocommit'</default>
+            <summary>Achievement Unlock Mode</summary>
+            <description>How the achievement view commits toggles. Valid values are 'autocommit' (each switch commits immediately), 'deferred' (toggles build an ordered queue that the user fires later), and 'copytiming' (replay a friend's unlock cadence).</description>
+        </key>
+
+        <key name="achievement-order" type="s">
+            <default>'global-percentage'</default>
+            <summary>Achievement Order</summary>
+            <description>How achievements are sorted. Valid values are 'steam-default', 'alphabetical', 'global-percentage', and 'unlock-date'.</description>
+        </key>
+
+        <key name="achievement-state" type="s">
+            <default>'all'</default>
+            <summary>Achievement State Filter</summary>
+            <description>Which achievements are shown. Valid values are 'all', 'locked', and 'unlocked'.</description>
+        </key>
+
+        <key name="stat-order" type="s">
+            <default>'steam-default'</default>
+            <summary>Stat Order</summary>
+            <description>How stats are sorted. Valid values are 'steam-default' and 'alphabetical'.</description>
+        </key>
+
+        <key name="copy-timing-max-gap-minutes" type="i">
+            <default>5</default>
+            <summary>Copy Timing Maximum Gap (Minutes)</summary>
+            <description>In copy-timing mode, the largest gap kept between two consecutive unlocks. Real gaps longer than this (e.g. between play sessions on different days) are compressed to this value.</description>
+        </key>
+
+        <key name="copy-timing-first-delay-minutes" type="i">
+            <default>5</default>
+            <summary>Copy Timing First Delay (Minutes)</summary>
+            <description>In copy-timing mode, how long to wait before the first achievement is unlocked.</description>
+        </key>
+
+        <key name="copy-timing-friend" type="s">
+            <default>''</default>
+            <summary>Copy Timing Friend</summary>
+            <description>Last persona name or SteamID64 used as the source in copy-timing mode.</description>
+        </key>
+
+        <key name="auto-fill-unit" type="s">
+            <default>'percent'</default>
+            <summary>Auto-fill Target Unit</summary>
+            <description>Which unit the Auto-fill target is expressed in. Valid values are 'count' (number of achievements) and 'percent' (target completion percentage).</description>
+        </key>
+
+        <key name="auto-fill-count" type="i">
+            <default>12</default>
+            <summary>Auto-fill Count Target</summary>
+            <description>Last value used for the count-based auto-fill target.</description>
+        </key>
+
+        <key name="auto-fill-percent" type="d">
+            <default>70.0</default>
+            <summary>Auto-fill Percent Target</summary>
+            <description>Last value used for the percent-based auto-fill target (0 to 100).</description>
+        </key>
+
+        <key name="unlock-duration-minutes" type="i">
+            <default>30</default>
+            <summary>Unlock Duration (Minutes)</summary>
+            <description>Total time window over which deferred unlocks are spread.</description>
+        </key>
+
+        <key name="unlock-spacing" type="s">
+            <default>'even'</default>
+            <summary>Unlock Spacing</summary>
+            <description>How deferred unlocks are spread over the duration. Valid values are 'even' (equally spaced) and 'random' (first and last pinned to even positions, middle jittered).</description>
+        </key>
+
+        <key name="last-counts-scan" type="x">
+            <default>0</default>
+            <summary>Last Full Achievement Scan</summary>
+            <description>Unix time of the last completed scan that asked Steam for every game's achievement counts, ignoring the local cache. Zero means no such scan has finished yet.</description>
+        </key>
+
+        <key name="action-journal-enabled" type="b">
+            <default>false</default>
+            <summary>Keep A History Of Changes</summary>
+            <description>Whether every change steam-achievement-manager-windows makes is recorded to a local history file, so it can be reviewed and undone. Turning this off stops recording; anything already recorded is kept.</description>
+        </key>
+
+        <key name="filter-collection" type="s">
+            <default>''</default>
+            <summary>Steam Collection To Show</summary>
+            <description>Id of the Steam library collection the games list is limited to, as Steam stores it: 'favorite' for your favourites, 'from-tag-' followed by a tag name for one Steam made from a tag, or 'uc-' followed by random characters for one you created. An empty string shows every game.</description>
+        </key>
+
+        <key name="filter-hide-steam-hidden" type="b">
+            <default>false</default>
+            <summary>Hide Games Hidden In Steam</summary>
+            <description>Whether games you placed in Steam's own Hidden collection are left out of the games list.</description>
+        </key>
+    </schema>
+</schemalist>

@@ -1,0 +1,48 @@
+[package]
+name = "steam-achievement-manager-windows"
+version = "1.6.5"
+description = "Steam Achievement Manager Rewritten"
+edition = "2024"
+rust-version = "1.95"
+authors = [
+    "Paul <abonnementspaul -@- gmail.com>",
+    "Phillip <phillip.mendel -@- posteo.de>",
+    "All steam-achievement-manager-windows contributors"
+]
+
+[dependencies]
+gtk = { version = "0", package = "gtk4", features = ["v4_14"], optional = true }
+adw = { version = "0", package = "libadwaita", features = ["v1_5"], optional = true }
+clap = { version = "4", features = ['derive'], optional = true }
+quick-xml = { version = "0", features = ["serialize"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0", features = ["blocking", "gzip"] }
+interprocess = "2"
+libloading = "0"
+keyvalues-serde = "0"
+
+[features]
+default = ['gui']
+gui = ['dep:gtk']
+adwaita = ['gui', 'dep:adw']
+cli = ['dep:clap']
+win-console = ['gui']
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0"
+
+[target.'cfg(windows)'.build-dependencies]
+winres = "0"
+
+[package.metadata.appimage]
+icon = "assets/icon_256.png"
+desktop_entry = "package/steam-achievement-manager-windows.desktop"
+assets = ["assets/gschemas.compiled", "assets/icons", "locale"]
+
+[profile.release]
+lto = "thin"
+
+[[bin]]
+name = "steam-achievement-manager-windows"
+path = "src/main.rs"

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Exec=steam-achievement-manager-windows
+Icon=${SNAP}/meta/gui/steam-achievement-manager-windows.png
+Name=steam-achievement-manager-windows
+Terminal=false
+Type=Application
+Comment=Steam Achievement Manager
+Categories=Game;
+StartupWMClass=steam-achievement-manager-windows;

@@ -1,0 +1,12 @@
+/target
+# The dev cache dir is the working directory, so the action journal and its
+# lock/temp sidecars land here.
+action_journal.jsonl*
+*.xml
+*.snap
+gschemas.compiled
+/locale
+!*.gschema.xml
+!*.gresource.xml
+!sitemap.xml
+assets/icons

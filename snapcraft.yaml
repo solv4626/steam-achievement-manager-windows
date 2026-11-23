@@ -1,0 +1,100 @@
+name: steam-achievement-manager-windows
+title: steam-achievement-manager-windows
+version: '1.6.5'
+summary: Steam achievements and stats manager
+description: Unlock achievements and stats on your Steam account
+confinement: strict
+base: core24
+license: GPL-3.0-only
+contact: https://github.com/PaulCombal/steam-achievement-manager-windows/issues
+issues: https://github.com/PaulCombal/steam-achievement-manager-windows/issues
+source-code: https://github.com/PaulCombal/steam-achievement-manager-windows
+donation: https://revolut.me/paulcombal?note=steam-achievement-manager-windows
+website: https://paulcombal.github.io/steam-achievement-manager-windows/
+
+parts:
+  # This workaround stays until gnome extensions land in core26
+  rust-deps:
+    plugin: nil
+    build-packages:
+      - curl
+    override-build: |
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain stable
+
+  steam-achievement-manager-windows:
+    plugin: rust
+    source: .
+    after: [rust-deps]
+    rust-channel: "none"
+    build-environment:
+      - RUSTUP_TOOLCHAIN: stable
+    build-packages:
+      - libpango1.0-dev
+      - libcairo2-dev
+      - libglib2.0-dev
+      - libssl-dev
+      - pkg-config
+    stage-packages:
+      - glib-networking
+    override-build: |
+      # Default GTK GUI build.
+      cargo build --release --no-default-features --features gui
+      install -Dm755 target/release/steam-achievement-manager-windows "$CRAFT_PART_INSTALL/bin/steam-achievement-manager-windows"
+      # Adwaita variant (GTK + libadwaita widgets).
+      cargo build --release --no-default-features --features adwaita
+      install -Dm755 target/release/steam-achievement-manager-windows "$CRAFT_PART_INSTALL/bin/steam-achievement-manager-windows-adw"
+      cargo build --release --no-default-features --features cli
+      install -Dm755 target/release/steam-achievement-manager-windows "$CRAFT_PART_INSTALL/bin/steam-achievement-manager-windows-cli"
+      # GSettings schema (used by both GUI variants).
+      install -Dm644 assets/org.steam-achievement-manager-windows.steam-achievement-manager-windows.gschema.xml \
+        "${CRAFT_PART_INSTALL}/usr/share/glib-2.0/schemas/org.steam-achievement-manager-windows.steam-achievement-manager-windows.gschema.xml"
+      glib-compile-schemas "${CRAFT_PART_INSTALL}/usr/share/glib-2.0/schemas/"
+      # Translations compiled by build.rs; i18n::locale_dir looks for them here.
+      if [ -d locale ]; then
+        mkdir -p "${CRAFT_PART_INSTALL}/usr/share/locale"
+        cp -r locale/. "${CRAFT_PART_INSTALL}/usr/share/locale/"
+      fi
+
+  launcher:
+    plugin: nil
+    source: package
+    override-build: |
+      install -Dm755 sam-launcher.sh "$CRAFT_PART_INSTALL/bin/sam-launcher.sh"
+
+slots:
+  dbus-steam-achievement-manager-windows:
+    interface: dbus
+    bus: session
+    name: org.steam-achievement-manager-windows.steam-achievement-manager-windows
+
+apps:
+  steam-achievement-manager-windows:
+    command-chain: [bin/sam-launcher.sh]
+    command: bin/steam-achievement-manager-windows
+    extensions: [gnome]
+    plugs:
+      - network
+      - wayland
+      - x11
+      - home
+    slots:
+      - dbus-steam-achievement-manager-windows
+
+  steam-achievement-manager-windows-adw:
+    command-chain: [bin/sam-launcher.sh]
+    command: bin/steam-achievement-manager-windows-adw
+    extensions: [gnome]
+    plugs:
+      - network
+      - wayland
+      - x11
+      - home
+    slots:
+      - dbus-steam-achievement-manager-windows
+
+  steam-achievement-manager-windows-cli:
+    command-chain: [bin/sam-launcher.sh]
+    command: bin/steam-achievement-manager-windows-cli
+    plugs:
+      - network
+      - home

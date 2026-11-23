@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>steam-achievement-manager-windows | Steam Achievement Manager, Linux &amp; Windows</title>
+<meta name="description" content="Full-featured Steam Achievement Manager. Unlock and relock achievements, edit stats, schedule unlocks, copy friends&#39; timings. Free, open-source and maintained.">
+<meta name="keywords" content="Steam Achievement Manager, SAM, Steam achievements Linux, unlock Steam achievements, Steam stats editor, steam-achievement-manager-windows, Steam achievement unlocker, GTK, Rust, AppImage, AUR">
+<meta name="author" content="Paul Combal and steam-achievement-manager-windows contributors">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#0d0d12">
+<meta name="google-site-verification" content="GwUHy4H_OSGQ7yAjX4geR9iGU3nc9KHW69StkL1db0I">
+<meta name="msvalidate.01" content="7BEA431868D33B82CBCDC8F62CEEB7AD" />
+<link rel="canonical" href="https://paulcombal.github.io/steam-achievement-manager-windows/">
+<link rel="alternate" hreflang="en" href="https://paulcombal.github.io/steam-achievement-manager-windows/">
+<link rel="alternate" hreflang="zh-Hans" href="https://paulcombal.github.io/steam-achievement-manager-windows/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://paulcombal.github.io/steam-achievement-manager-windows/zh-hant/">
+<link rel="alternate" hreflang="x-default" href="https://paulcombal.github.io/steam-achievement-manager-windows/">
+<link rel="icon" href="/steam-achievement-manager-windows/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/steam-achievement-manager-windows/icon_64.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="steam-achievement-manager-windows | Steam Achievement Manager, Linux &amp; Windows">
+<meta property="og:description" content="Full-featured Steam Achievement Manager for Linux and Windows. Unlock and relock achievements, edit game stats, schedule unlocks, copy friends&#39; timings. Free, open-source and maintained.">
+<meta property="og:url" content="https://paulcombal.github.io/steam-achievement-manager-windows/">
+<meta property="og:image" content="https://paulcombal.github.io/steam-achievement-manager-windows/img/og-card.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="steam-achievement-manager-windows — Steam Achievement Manager for Linux and Windows, showing the app's game library.">
+<meta property="og:site_name" content="steam-achievement-manager-windows">
+<meta property="og:locale" content="en">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="steam-achievement-manager-windows | Steam Achievement Manager, Linux &amp; Windows">
+<meta name="twitter:description" content="Full-featured Steam Achievement Manager for Linux and Windows. Unlock and relock achievements, edit game stats, schedule unlocks, copy friends&#39; timings. Free, open-source and maintained.">
+<meta name="twitter:image" content="https://paulcombal.github.io/steam-achievement-manager-windows/img/og-card.png">
+<meta name="twitter:image:alt" content="steam-achievement-manager-windows — Steam Achievement Manager for Linux and Windows, showing the app's game library.">
+
+<!-- Structured data: the application -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "steam-achievement-manager-windows",
+  "alternateName": "Steam Achievement Manager Rewritten",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Linux, Windows",
+  "description": "A free, open-source Steam Achievement Manager for Linux and Windows. Unlock and relock Steam achievements, edit game stats in real time, schedule achievement unlocks, and idle apps. Includes a GTK graphical interface and a command-line tool.",
+  "url": "https://paulcombal.github.io/steam-achievement-manager-windows/",
+  "downloadUrl": "https://github.com/PaulCombal/steam-achievement-manager-windows/releases",
+  "softwareVersion": "1.6.5",
+  "license": "https://github.com/PaulCombal/steam-achievement-manager-windows/blob/master/LICENSE",
+  "image": [
+    "https://paulcombal.github.io/steam-achievement-manager-windows/img/og-card.png",
+    "https://paulcombal.github.io/steam-achievement-manager-windows/img/screenshot1.png",
+    "https://paulcombal.github.io/steam-achievement-manager-windows/img/icon_256.png"
+  ],
+  "screenshot": [
+    "https://paulcombal.github.io/steam-achievement-manager-windows/img/screenshot1.png",
+    "https://paulcombal.github.io/steam-achievement-manager-windows/img/screenshot2.png"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Paul Combal"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- Structured data: site identity -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "steam-achievement-manager-windows",
+  "alternateName": "steam-achievement-manager-windows — Steam Achievement Manager",
+  "url": "https://paulcombal.github.io/steam-achievement-manager-windows/",
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Person",
+    "name": "Paul Combal",
+    "url": "https://github.com/PaulCombal"
+  }
+}
+</script>
+
+<!-- Structured data: FAQ (eligible for rich results & heavily used by LLMs) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does steam-achievement-manager-windows work on Linux?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. steam-achievement-manager-windows provides Linux AppImages and is available on the Arch User Repository (steam-achievement-manager-windows-git). It supports Snap installations of Steam, Ubuntu/Debian multiarch and .deb installations, and distributions that use the Steam runtime such as Gentoo and Arch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Steam Achievement Manager?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Steam Achievement Manager (SAM) is a tool that lets you unlock and relock achievements on your Steam account and edit game statistics. steam-achievement-manager-windows is a modern, open-source SAM for Linux and Windows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is steam-achievement-manager-windows free and open source?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. steam-achievement-manager-windows is free and open source, hosted on GitHub. It is not affiliated with Valve Corporation or Microsoft."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does steam-achievement-manager-windows support Flatpak Steam?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. steam-achievement-manager-windows works with the Flatpak version of Steam. The Snap and .deb versions of Steam are supported too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can steam-achievement-manager-windows show my Steam achievement statistics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. steam-achievement-manager-windows includes a stats page for your whole library: totals for games owned, achievements unlocked, average completion, perfect games and playtime, a per-day unlock activity heatmap with a year switcher, a graph of average completion over time, and a review of unlock bursts that look irregular. Everything is computed locally from the achievement records Steam already keeps on your disk. steam-achievement-manager-windows can also keep an optional local history of every change it makes, which you can review and undo; it is off by default."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use steam-achievement-manager-windows from the command line?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. steam-achievement-manager-windows includes a CLI that does not require GTK. It can list apps, achievements and stats, lock/unlock achievements in bulk, edit stat values, import/export as JSON, and idle apps. Full documentation is at https://paulcombal.github.io/steam-achievement-manager-windows/cli.html"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does steam-achievement-manager-windows compare to other Steam Achievement Managers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "steam-achievement-manager-windows runs on Linux and Windows and works with Windows, Snap, Flatpak and native Steam installs. The original Steam Achievement Manager by Gibbed is Windows only, and Samira is Linux only with no Flatpak support. steam-achievement-manager-windows also adds timed unlocks, copying another user's timings, JSON import and export, and a command-line interface. Steam Game Idler shares some of those features, but its free tier shows ads and some of them need a paid subscription."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --bg: #0d0d12;
+    --surface: #15151d;
+    --surface-2: #1b1b25;
+    --border: #25252f;
+    --border-soft: #1f1f29;
+    --text: #ededf2;
+    --muted: #9a9aab;
+    --accent: #7c93ff;
+    --accent-hover: #93a6ff;
+    --accent-soft: rgba(124, 147, 255, .14);
+    --btn: #4361ee;
+    --btn-hover: #5470f5;
+    --radius: 12px;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.25);
+    --maxw: 960px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-hover); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(13,13,18,.72);
+    backdrop-filter: saturate(160%) blur(12px);
+    -webkit-backdrop-filter: saturate(160%) blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .nav .wrap { display: flex; align-items: center; gap: 16px; height: 60px; }
+  .nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
+  .nav .brand img { width: 26px; height: 26px; }
+  .nav .links { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+  .nav .links a:not(.btn) { color: var(--muted); font-size: .94rem; font-weight: 500; }
+  .nav .links a:not(.btn):hover { color: var(--text); }
+  .nav .links .btn { padding: 8px 16px; font-size: .9rem; }
+  @media (max-width: 600px) { .nav .links .nav-link { display: none; } }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--btn); color: #fff;
+    padding: 12px 22px; border-radius: 10px;
+    font-weight: 600; font-size: 1rem; line-height: 1;
+    border: 1px solid transparent;
+    transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  }
+  .btn:hover { background: var(--btn-hover); color: #fff; transform: translateY(-1px); }
+  .btn svg { width: 18px; height: 18px; }
+  .btn.secondary { background: transparent; color: var(--text); border-color: var(--border); }
+  .btn.secondary:hover { background: var(--surface-2); color: var(--text); border-color: #34344a; }
+  .snap-store { display: inline-flex; align-items: center; transition: transform .12s ease; }
+  .snap-store:hover { transform: translateY(-1px); }
+  .snap-store img { height: 44px; }
+
+  /* Hero */
+  .hero { position: relative; text-align: center; padding: 88px 0 64px; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background:
+      radial-gradient(60% 70% at 50% -10%, var(--accent-soft), transparent 70%),
+      radial-gradient(40% 50% at 85% 10%, rgba(124,147,255,.06), transparent 70%);
+  }
+  .hero .logo { width: 104px; height: 104px; filter: drop-shadow(0 8px 28px rgba(124,147,255,.28)); }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); margin: 18px 0 10px; letter-spacing: -.03em; line-height: 1.05; }
+  .hero .tagline { font-size: clamp(1.05rem, 2.5vw, 1.3rem); color: var(--muted); margin: 0 auto 18px; max-width: 560px; }
+  .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 28px; }
+  .badge {
+    font-size: .82rem; font-weight: 500; color: var(--muted);
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 5px 12px; border-radius: 999px;
+  }
+  .cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+  /* Sections */
+  section.block { padding: 56px 0; }
+  [id] { scroll-margin-top: 76px; }
+  section.block + section.block { border-top: 1px solid var(--border-soft); }
+  h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin: 0 0 8px; letter-spacing: -.02em; }
+  .lead { color: var(--muted); margin: 0 0 28px; }
+  .section-head { margin-bottom: 28px; }
+
+  /* Screenshots */
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .shots figure { margin: 0; }
+  .shots img {
+    width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border);
+    display: block; box-shadow: var(--shadow); transition: transform .2s ease;
+  }
+  .shots img { cursor: pointer; }
+  .shots figure:hover img { transform: translateY(-3px); }
+  .shots figcaption { color: var(--muted); font-size: .9rem; text-align: center; margin-top: 10px; }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: center; padding: 32px;
+    background: rgba(6,6,10,.82); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility .2s ease;
+    cursor: zoom-out;
+  }
+  .lightbox.open { opacity: 1; visibility: visible; }
+  .lightbox img {
+    max-width: 100%; max-height: 88vh; border-radius: var(--radius);
+    border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,.5); cursor: default;
+  }
+  .lightbox .close {
+    position: absolute; top: 18px; right: 22px;
+    width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+    background: var(--surface); color: var(--text);
+    border: 1px solid var(--border); border-radius: 10px; cursor: pointer;
+    font-size: 1.4rem; line-height: 1; transition: background .15s ease;
+  }
+  .lightbox .close:hover { background: var(--surface-2); }
+
+  /* Features */
+  ul.features { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  ul.features li {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--surface); border: 1px solid var(--border-soft);
+    border-radius: var(--radius); padding: 16px 18px; transition: border-color .15s ease;
+  }
+  ul.features li:hover { border-color: var(--border); }
+  ul.features svg { flex: none; width: 20px; height: 20px; margin-top: 1px; color: var(--accent); }
+
+  /* Install + cards */
+  .install-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card { background: var(--surface); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 22px; }
+  .card h3 { margin: 0 0 10px; display: flex; align-items: center; gap: 10px; }
+  .card h3 svg { width: 20px; height: 20px; color: var(--muted); }
+  .card p { margin: 0; color: var(--muted); }
+  .card p + pre { margin-bottom: 0; }
+  .note { color: var(--muted); margin: 18px 0 0; font-size: .95rem; }
+  code, pre { background: #0a0a0f; border: 1px solid var(--border); border-radius: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  code { padding: 2px 7px; font-size: .88em; }
+  pre { padding: 12px 14px; margin: 14px 0 0; overflow-x: auto; }
+  pre code { background: none; border: none; padding: 0; }
+
+  /* FAQ */
+  details {
+    background: var(--surface); border: 1px solid var(--border-soft);
+    border-radius: var(--radius); padding: 4px 18px; margin-bottom: 12px;
+    transition: border-color .15s ease;
+  }
+  details:hover { border-color: var(--border); }
+  summary {
+    cursor: pointer; font-weight: 600; padding: 14px 0; list-style: none;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: ""; flex: none; width: 9px; height: 9px;
+    border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+    transform: rotate(45deg); transition: transform .2s ease; margin-right: 4px;
+  }
+  details[open] summary::after { transform: rotate(225deg); }
+  details > p { margin: 0 0 16px; color: var(--muted); }
+
+  /* Comparison */
+  .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.compare { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 620px; table-layout: fixed; }
+  table.compare col.feature { width: 34%; }
+  table.compare th, table.compare td { padding: 12px 10px; text-align: center; vertical-align: middle; border-bottom: 1px solid var(--border-soft); font-weight: 500; }
+  table.compare thead th { padding: 16px 10px; vertical-align: bottom; border-bottom: 1px solid var(--border); }
+  table.compare thead th a { display: block; color: var(--text); font-weight: 600; line-height: 1.3; }
+  table.compare thead th a:hover { color: var(--accent); }
+  table.compare thead th img { display: block; width: 36px; height: 36px; margin: 0 auto 8px; }
+  table.compare tbody th { text-align: left; font-weight: 600; }
+  table.compare tbody th small { display: block; color: var(--muted); font-size: .8rem; font-weight: 400; line-height: 1.35; margin-top: 2px; }
+  table.compare tbody tr:not(.group):hover th, table.compare tbody tr:not(.group):hover td { background: var(--surface); }
+  table.compare tbody th.install { font-weight: 500; }
+  table.compare tbody th.install svg { width: 20px; height: 20px; flex: none; }
+  table.compare tbody th.install span { display: flex; align-items: center; gap: 10px; }
+  table.compare tr.group th, table.compare tr.group td { padding: 22px 10px 8px; color: var(--muted); font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  table.compare tbody:first-of-type tr.group th, table.compare tbody:first-of-type tr.group td { padding-top: 14px; }
+  table.compare td.text { color: var(--muted); font-size: .85rem; line-height: 1.35; }
+  table.compare .me, table.compare tbody tr:not(.group):hover .me { background: var(--accent-soft); box-shadow: inset 1px 0 0 var(--accent), inset -1px 0 0 var(--accent); }
+  table.compare thead th.me { border-radius: var(--radius) var(--radius) 0 0; box-shadow: inset 1px 1px 0 var(--accent), inset -1px 0 0 var(--accent); }
+  table.compare thead th.me a { color: var(--accent); }
+  table.compare tbody:last-of-type tr:last-child .me { border-radius: 0 0 var(--radius) var(--radius); box-shadow: inset 1px -1px 0 var(--accent), inset -1px 0 0 var(--accent); }
+  table.compare tbody:last-of-type tr:last-child th, table.compare tbody:last-of-type tr:last-child td { border-bottom: 0; }
+  table.compare sup { font-size: .68em; }
+  table.compare sup a { color: var(--muted); }
+  .compare-date { color: var(--muted); font-size: .9rem; margin: 16px 0 0; }
+  .compare-notes { color: var(--muted); margin: 12px 0 0; padding-left: 20px; font-size: .95rem; }
+  .compare-notes li + li { margin-top: 6px; }
+  .mark { display: inline-flex; width: 26px; height: 26px; vertical-align: middle; }
+  .mark svg { width: 100%; height: 100%; }
+  .mark.yes { color: var(--accent); }
+  .mark.partial { color: #d9a441; }
+  .mark.no { color: #55556a; }
+  .compare-legend { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0 0 16px; color: var(--muted); font-size: .9rem; }
+  .compare-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .compare-legend .mark { width: 20px; height: 20px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border-soft); padding: 40px 0 56px; }
+  footer .wrap { text-align: center; color: var(--muted); font-size: .85rem; }
+  footer .links { margin-top: 12px; }
+  footer .links a { color: var(--muted); }
+  footer .links a:hover { color: var(--text); }
+
+  @media (max-width: 640px) {
+    .shots, ul.features, .install-grid { grid-template-columns: 1fr; }
+    .hero { padding: 56px 0 44px; }
+    section.block { padding: 44px 0; }
+    table.compare th:first-child { position: sticky; left: 0; z-index: 1; background: var(--bg); }
+    table.compare col.feature { width: 150px; }
+    table.compare tbody th small { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="img/icon_256.png" alt="" width="256" height="256">
+      steam-achievement-manager-windows
+    </a>
+    <div class="links">
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#compare">Compare</a>
+      <a class="nav-link" href="#install">Install</a>
+      <a class="nav-link" href="cli.html">CLI</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="btn" href="https://github.com/PaulCombal/steam-achievement-manager-windows/releases/latest">Download</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <img class="logo" src="img/icon_256.png" alt="steam-achievement-manager-windows logo" width="256" height="256" fetchpriority="high">
+    <h1>steam-achievement-manager-windows</h1>
+    <p class="tagline">A free, open-source Steam Achievement Manager for Linux &amp; Windows.</p>
+    <div class="badges">
+      <span class="badge">Free &amp; open source</span>
+      <span class="badge">Linux</span>
+      <span class="badge">Windows</span>
+      <span class="badge">GUI + CLI</span>
+    </div>
+    <div class="cta">
+      <a class="btn" href="https://github.com/PaulCombal/steam-achievement-manager-windows/releases/latest">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 21h14"/></svg>
+        Download
+      </a>
+      <a class="snap-store" href="https://snapcraft.io/steam-achievement-manager-windows">
+        <img alt="Get it from the Snap Store" src="https://snapcraft.io/en/dark/install.svg" />
+      </a>
+      <a class="btn secondary" href="https://github.com/PaulCombal/steam-achievement-manager-windows">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7 0-.7 0-.7 1.2 0 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What is steam-achievement-manager-windows?</h2>
+      </div>
+      <p class="lead">
+        steam-achievement-manager-windows is a tool that lets you <strong>unlock and relock achievements</strong> on your Steam account.
+        It can also edit statistics for games and apps that expose them. While achievements carry no financial value,
+        they are widely used for collection progress and bragging rights. steam-achievement-manager-windows ships with both a polished
+        <strong>GTK graphical interface</strong> and a scriptable <strong>command-line tool</strong>.
+      </p>
+      <div class="shots">
+        <figure>
+          <img class="zoomable" src="img/screenshot1.png" alt="steam-achievement-manager-windows GTK interface showing a Steam game's achievement list with unlock toggles" width="910" height="602" role="button" tabindex="0" aria-label="Enlarge GTK version screenshot">
+          <figcaption>GTK version preview</figcaption>
+        </figure>
+        <figure>
+          <img class="zoomable" src="img/screenshot2.png" alt="steam-achievement-manager-windows Adwaita interface preview with light and dark themes" width="906" height="602" role="button" tabindex="0" aria-label="Enlarge Adwaita version screenshot">
+          <figcaption>Adwaita version preview</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features">
+    <div class="wrap">
+      <div class="section-head"><h2>Features</h2></div>
+      <ul class="features">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Lock and unlock specific achievements with a single click</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Bulk lock/unlock achievements for all or selected apps</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Schedule achievement unlocks over a custom period</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Copy another user's unlock timings and replay them on your account</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Edit game statistics in real time</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Per-app or bulk import/export of achievements and stats (JSON)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Idle apps: appear in-game until you toggle it off</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span>Advanced stats: library totals, a per-day unlock activity heatmap, and average completion over time (<a href="#stats">see below</a>)</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Review of unlock bursts that look irregular, so you can see what stands out in your own history</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Optional local history of every change steam-achievement-manager-windows makes, with one-click undo</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Light and dark themes</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Translated into French, Spanish, German, Italian, Polish, Greek, Russian, Ukrainian, Turkish, Japanese, Simplified and Traditional Chinese, and Brazilian Portuguese (in addition to English)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span>Full-featured CLI that does not require GTK (<a href="cli.html">read the guide</a>)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="stats">
+    <div class="wrap">
+      <div class="section-head"><h2>Advanced stats</h2></div>
+      <p class="lead">
+        Click your Steam profile in the sidebar to open a page about your library rather than any single game.
+        Everything on it is computed <strong>locally</strong>, from the achievement records Steam already keeps on
+        your disk — so it is exactly as complete as those records are.
+      </p>
+      <ul class="features">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span><strong>Library totals</strong> — games owned, achievements unlocked, average completion, perfect games and total playtime.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span><strong>Unlock activity</strong> — a calendar heatmap, one square per day, with a year switcher. Hover any day to see how many achievements it holds and which game they came from.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span><strong>Completion over time</strong> — your average completion across the games you have started, from your first unlock to today. It dips whenever you start something new, which is the honest shape of a library.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span><strong>Irregular activity</strong> — runs of unlocks that arrived too fast or too neatly to look like ordinary play, each with a short note on why it stands out.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span><strong>What steam-achievement-manager-windows changed</strong> — opt-in and off by default. Turn it on and every unlock, relock and stat edit the app makes is recorded to a local file you can review and undo.</span></li>
+      </ul>
+      <p class="note">
+        Irregular activity flags candidates, never verdicts. A game that grants its whole catalogue on first launch
+        looks exactly like a bulk unlock, and the page says so rather than guessing.
+      </p>
+    </div>
+  </section>
+
+  <section class="block" id="compare">
+    <div class="wrap">
+      <div class="section-head"><h2>How steam-achievement-manager-windows compares to other Steam Achievement Managers</h2></div>
+      <p class="lead">
+        How steam-achievement-manager-windows stacks up against other Steam Achievement Managers and unlockers — the original
+        <a href="https://github.com/gibbed/SteamAchievementManager">Steam Achievement Manager (SAM) by Gibbed</a>,
+        <a href="https://github.com/jsnli/Samira">Samira</a>, and
+        <a href="https://github.com/zevnda/steam-game-idler">Steam Game Idler</a>.
+        steam-achievement-manager-windows is the only one of the four with full support for Windows, Snap, Flatpak and native Linux Steam
+        installs, and the only one with JSON import and export. It is free, open source and ad-free, with no paid tier.
+      </p>
+      <div class="compare-legend">
+        <span><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Yes</span>
+        <span><span class="mark partial"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="M7.5 12h9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>Partly, see notes</span>
+        <span><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>No</span>
+      </div>
+      <div class="compare-wrap">
+        <table class="compare">
+          <caption class="sr-only">steam-achievement-manager-windows vs other Steam Achievement Managers</caption>
+          <colgroup><col class="feature"><col><col><col><col></colgroup>
+          <thead>
+            <tr>
+              <th scope="col"><span class="sr-only">Feature</span></th>
+              <th scope="col" class="me"><img src="icon_64.png" alt="" width="36" height="36"><a href="https://github.com/PaulCombal/steam-achievement-manager-windows">steam-achievement-manager-windows</a></th>
+              <th scope="col"><a href="https://github.com/gibbed/SteamAchievementManager">SAM (Gibbed)</a></th>
+              <th scope="col"><a href="https://github.com/jsnli/Samira">Samira</a></th>
+              <th scope="col"><a href="https://github.com/zevnda/steam-game-idler">Steam Game Idler</a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group"><th scope="rowgroup">Supported Steam installs</th><td class="me"></td><td></td><td></td><td></td></tr>
+            <tr><th scope="row" class="install"><span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="8.5" height="8.5" rx="0.6" fill="#0078d4"/><rect x="13" y="2.5" width="8.5" height="8.5" rx="0.6" fill="#0078d4"/><rect x="2.5" y="13" width="8.5" height="8.5" rx="0.6" fill="#0078d4"/><rect x="13" y="13" width="8.5" height="8.5" rx="0.6" fill="#0078d4"/></svg>Windows</span></th><td class="me"><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td></tr>
+            <tr><th scope="row" class="install"><span><svg viewBox="7.87 -0.04 114.07 109.18" aria-hidden="true"><path d="m72.2 24.74v35.05l24.28-24.27-24.28-10.78z" fill="#82bea0"/><path d="m55.61 50.33l-29.76 55.8 42.82-42.83-13.06-12.97z" fill="#82bea0"/><path d="m70.13 23.1l-61.26-22.14 61.26 60.88v-38.74z" fill="#82bea0"/><path d="m118.94 43.26l-10.04-20.16h-35.3l45.34 20.16z" fill="#fa6441"/></svg>Snap</span></th><td class="me"><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark partial"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="M7.5 12h9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span class="sr-only">Partly, see notes</span></span><sup><a href="#compare-note-1">1</a></sup></td></tr>
+            <tr><th scope="row" class="install"><span><svg viewBox="101 47 191 212" aria-hidden="true"><g transform="translate(-1108.5714,-122.85715)"><g transform="matrix(0.65355666,0,0,0.65355666,1083.9554,58.477411)" fill="#4a90d9"><path d="m 474.6092,255.1181 1e-5,151.18111 -130.92667,75.59055 v -151.1811 z"/><path d="M 343.68252,330.70866 V 179.52756 L 212.75586,255.1181 Z"/><path d="m 218.61226,233.26169 c -13.54108,7.81795 -21.85641,22.22052 -21.85641,37.85641 v 119.18111 c 0,15.63589 8.31533,30.03846 21.85641,37.85641 l 103.21385,59.59055 c 13.54108,7.81794 30.17174,7.81794 43.71282,0 l 103.21386,-59.59055 c 13.54108,-7.81795 21.85641,-22.22052 21.85641,-37.85641 V 271.1181 c 0,-15.63589 -8.31533,-30.03846 -21.85641,-37.85641 L 365.53893,173.67115 c -13.54108,-7.81794 -30.17174,-7.81794 -43.71282,0 z m 130.92667,-31.87772 103.21386,59.59054 c 3.60767,2.08289 5.85641,5.97781 5.85641,10.14359 v 119.18111 c 0,4.16578 -2.24874,8.0607 -5.85641,10.14359 l -103.21386,59.59055 c -3.60767,2.08289 -8.10515,2.08289 -11.71282,0 L 234.61226,400.4428 c -3.60767,-2.08289 -5.85641,-5.97781 -5.85641,-10.14359 V 271.1181 c 0,-4.16578 2.24874,-8.0607 5.85641,-10.14359 l 103.21385,-59.59054 c 3.60767,-2.08289 8.10515,-2.08289 11.71282,0 z"/></g></g></svg>Flatpak</span></th><td class="me"><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark partial"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="M7.5 12h9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span class="sr-only">Partly, see notes</span></span><sup><a href="#compare-note-1">1</a></sup></td></tr>
+            <tr><th scope="row" class="install"><span><svg viewBox="0 0 24 24" fill="none" stroke="#c08440" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>Native / package</span></th><td class="me"><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark partial"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="M7.5 12h9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span class="sr-only">Partly, see notes</span></span><sup><a href="#compare-note-1">1</a></sup></td></tr>
+          </tbody>
+          <tbody>
+            <tr class="group"><th scope="rowgroup">Features</th><td class="me"></td><td></td><td></td><td></td></tr>
+            <tr><th scope="row">Timed unlocks<small>Unlock gradually over a chosen period</small></th><td class="me"><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td></tr>
+            <tr><th scope="row">Copy user timings<small>Reuse another user's unlock order and delays</small></th><td class="me"><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark partial"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="M7.5 12h9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span class="sr-only">Partly, see notes</span></span><sup><a href="#compare-note-2">2</a></sup></td></tr>
+            <tr><th scope="row">Import/Export<small>Back up and restore progress as JSON</small></th><td class="me"><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td></tr>
+            <tr><th scope="row">Scriptable<small>Automate from a command line, without the GUI</small></th><td class="me"><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark partial"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="M7.5 12h9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span class="sr-only">Partly, see notes</span></span><sup><a href="#compare-note-3">3</a></sup></td></tr>
+            <tr><th scope="row">Card farming<small>Idle games to collect trading card drops</small></th><td class="me"><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark no"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 8.5 7 7m0-7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">No</span></span></td><td><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td></tr>
+            <tr><th scope="row">Ad-free<small>No ads in the app</small></th><td class="me"><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark yes"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="m7 12.5 3.3 3.3L17 9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Yes</span></span></td><td><span class="mark partial"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor" opacity=".16"/><path d="M7.5 12h9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span class="sr-only">Partly, see notes</span></span><sup><a href="#compare-note-2">2</a></sup></td></tr>
+          </tbody>
+          <tbody>
+            <tr class="group"><th scope="rowgroup">Project</th><td class="me"></td><td></td><td></td><td></td></tr>
+            <tr><th scope="row">GUI stack<small>What the interface is built with</small></th><td class="text me">GTK 4 / libadwaita</td><td class="text">WinForms (.NET)</td><td class="text">Tauri (React)</td><td class="text">Tauri (Next.js)</td></tr>
+            <tr><th scope="row">License<small>What the project is released under</small></th><td class="text me">GPL-3.0</td><td class="text">zlib</td><td class="text">GPL-3.0</td><td class="text">Elastic-2.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compare-date">Last checked October 2026 against each project's repository and documentation.</p>
+      <ol class="compare-notes">
+        <li id="compare-note-1">Steam Game Idler has run on Linux since version 6.1.0 and needs no local Steam client, so it works whichever way Steam is installed. On Linux it can only sign in to Steam directly, which leaves Team Fortress 2, Dota 2, CS2, Left 4 Dead 2 and Portal 2 out of reach.</li>
+        <li id="compare-note-2">Steam Game Idler's free tier shows ads and can't import timings. Removing ads takes a paid PRO subscription, from $2 a month; importing timings takes the $4 a month Gamer tier.</li>
+        <li id="compare-note-3">Steam Game Idler is a graphical app; its engine, <a href="https://github.com/zevnda/steam-utility">SteamUtility</a>, is a separate standalone CLI. That CLI is Windows only: the Linux build doesn't include it.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="install">
+    <div class="wrap">
+      <div class="section-head"><h2>Installation</h2></div>
+      <div class="install-grid">
+        <div class="card">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2.5" y="2.5" width="8.5" height="8.5" rx="0.6"/><rect x="13" y="2.5" width="8.5" height="8.5" rx="0.6"/><rect x="2.5" y="13" width="8.5" height="8.5" rx="0.6"/><rect x="13" y="13" width="8.5" height="8.5" rx="0.6"/></svg>
+            Windows
+          </h3>
+          <p>Download the official installer from the
+            <a href="https://github.com/PaulCombal/steam-achievement-manager-windows/releases/latest">Releases page</a>
+            and launch steam-achievement-manager-windows from the Start menu. A portable ZIP is also available.</p>
+        </div>
+        <div class="card">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105a.086.086 0 01-.004-.021l-.004-.024a1.807 1.807 0 01-.15.706.953.953 0 01-.213.335.71.71 0 00-.088-.042c-.104-.045-.198-.064-.284-.133a1.312 1.312 0 00-.22-.066c.05-.06.146-.133.183-.198.053-.128.082-.264.088-.402v-.02a1.21 1.21 0 00-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 00-.205.334 1.18 1.18 0 00-.09.4v.019c.002.089.008.179.02.267-.193-.067-.438-.135-.607-.202a1.635 1.635 0 01-.018-.2v-.02a1.772 1.772 0 01.15-.768c.082-.22.232-.406.43-.533a.985.985 0 01.594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2.012-.09.013-.18.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.613.613 0 00-.166-.267.248.248 0 00-.183-.064h-.021c-.071.006-.13.04-.186.132a.552.552 0 00-.12.27.944.944 0 00-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268.01.009.02.018.034.024-.07.057-.117.07-.176.136a.304.304 0 01-.131.068 2.62 2.62 0 01-.275-.402 1.772 1.772 0 01-.155-.667 1.759 1.759 0 01.08-.668 1.43 1.43 0 01.283-.535c.128-.133.26-.2.418-.2zm1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.571.571 0 01.016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.139 1.139 0 01-.448-.067 3.566 3.566 0 01-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71-.07-.268-.005-.47.193-.6.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.645 2.645 0 00-.402-.533 1.45 1.45 0 00-.275-.333c.182 0 .338-.03.465-.067a.615.615 0 00.314-.334c.108-.267 0-.697-.345-1.163-.345-.467-.931-.995-1.788-1.521-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.123 8.123 0 01.647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335.039.003.075.006.11.006.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01c.053 0 .105.005.157.014.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602-.369-.066-.61-.2-.723-.4-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336zm7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8.097 8.097 0 01-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065zm-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></svg>
+            Linux
+          </h3>
+          <p>steam-achievement-manager-windows runs on <strong>every Linux distribution</strong> — as an AppImage, from the
+            Snap Store, or from the AUR. See the
+            <a href="https://github.com/PaulCombal/steam-achievement-manager-windows#installation">install instructions</a>
+            for the option that fits your distribution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="section-head"><h2>Frequently asked questions</h2></div>
+
+      <details open>
+        <summary>Does steam-achievement-manager-windows work on Linux?</summary>
+        <p>Yes. It provides Linux AppImages and is on the AUR (<code>steam-achievement-manager-windows-git</code>). It supports Snap Steam,
+          Ubuntu/Debian multiarch and <code>.deb</code> installs, and Steam-runtime distros such as Gentoo and Arch.</p>
+      </details>
+
+      <details>
+        <summary>What is a Steam Achievement Manager?</summary>
+        <p>A Steam Achievement Manager (SAM) lets you unlock and relock achievements on your Steam account and edit
+          game statistics. steam-achievement-manager-windows is a modern, open-source SAM for Linux and Windows.</p>
+      </details>
+
+      <details>
+        <summary>Is steam-achievement-manager-windows free and open source?</summary>
+        <p>Yes — it is free and open source, hosted on GitHub. It is not affiliated with Valve Corporation or Microsoft.</p>
+      </details>
+
+      <details>
+        <summary>Does steam-achievement-manager-windows support Flatpak Steam?</summary>
+        <p>Yes. steam-achievement-manager-windows works with the Flatpak version of Steam. Snap and .deb installations of Steam are supported as well.</p>
+      </details>
+
+      <details>
+        <summary>Can steam-achievement-manager-windows show my Steam achievement statistics?</summary>
+        <p>Yes. Click your profile in the sidebar to open a stats page with your library totals, a per-day unlock
+          activity heatmap with a year switcher, a graph of your average completion over time, and a review of unlock
+          bursts that look irregular — see <a href="#stats">Advanced stats</a>. Everything is computed locally from the
+          achievement records Steam already keeps on your disk.</p>
+      </details>
+
+      <details>
+        <summary>Can I use steam-achievement-manager-windows from the command line?</summary>
+        <p>Yes. The CLI does not require GTK and can list apps/achievements/stats, lock/unlock in bulk,
+          edit stats, import/export JSON, and idle apps. Every command prints JSON, so it scripts well —
+          see the <a href="cli.html">CLI guide</a> for the full reference.</p>
+      </details>
+
+      <details>
+        <summary>How does steam-achievement-manager-windows compare to other Steam Achievement Managers?</summary>
+        <p>steam-achievement-manager-windows runs on Linux and Windows and works with Windows, Snap, Flatpak and native Steam installs. The original Steam Achievement Manager by Gibbed is Windows only, and Samira is Linux only with no Flatpak support. steam-achievement-manager-windows also adds timed unlocks, copying another user's timings, JSON import and export, and a command-line interface. Steam Game Idler shares some of those features, but its free tier shows ads and some of them need a paid subscription. See the <a href="#compare">full comparison</a>.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head"><h2>Acknowledgements</h2></div>
+      <p class="lead">
+        steam-achievement-manager-windows is heavily inspired by
+        <a href="https://github.com/gibbed/SteamAchievementManager">Steam Achievement Manager by Gibbed</a> and
+        <a href="https://github.com/jsnli/Samira">Samira by jsnli</a>, and by
+        <a href="https://github.com/PaulCombal/steam-achievement-manager-windows-legacy">the legacy version of steam-achievement-manager-windows</a>.
+        Thank you to all contributors, users, and stargazers.
+      </p>
+      <p class="lead">
+        steam-achievement-manager-windows's translations are written by its community.
+        You don't need to be a programmer to help: translating is mostly just filling in a text
+        file. Contributions for any language are welcome — see the
+        <a href="https://github.com/PaulCombal/steam-achievement-manager-windows#translations">translation guide</a>
+        to get started.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      steam-achievement-manager-windows and its contributors are not affiliated with Valve Corporation or Microsoft.
+      Steam and Windows are trademarks of their respective owners. This software is provided as a Proof-of-Concept;
+      you alone are responsible for the management of your Steam account.
+    </p>
+    <p class="links"><a href="https://github.com/PaulCombal/steam-achievement-manager-windows">GitHub</a> &middot;
+       <a href="https://github.com/PaulCombal/steam-achievement-manager-windows/releases/latest">Download</a> &middot;
+       <a href="cli.html">CLI guide</a> &middot;
+       <a href="https://github.com/PaulCombal/steam-achievement-manager-windows/issues">Report an issue</a></p>
+    <p class="links"><a href="zh-hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> &middot;
+       <a href="zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> &middot;
+       <a href="sitemap.xml">Sitemap</a></p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer">
+  <button class="close" type="button" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  (function () {
+    var box = document.getElementById('lightbox');
+    var boxImg = document.getElementById('lightbox-img');
+    var closeBtn = box.querySelector('.close');
+    var lastFocus = null;
+
+    function open(src, alt) {
+      lastFocus = document.activeElement;
+      boxImg.src = src;
+      boxImg.alt = alt || '';
+      box.classList.add('open');
+      closeBtn.focus();
+    }
+    function close() {
+      box.classList.remove('open');
+      boxImg.src = '';
+      if (lastFocus) lastFocus.focus();
+    }
+
+    document.querySelectorAll('.zoomable').forEach(function (img) {
+      img.addEventListener('click', function () { open(img.src, img.alt); });
+      img.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img.src, img.alt); }
+      });
+    });
+
+    closeBtn.addEventListener('click', close);
+    box.addEventListener('click', function (e) { if (e.target !== boxImg) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && box.classList.contains('open')) close();
+    });
+  })();
+</script>
+
+</body>
+</html>

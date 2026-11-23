@@ -1,0 +1,125 @@
+// SPDX-License-Identifier: GPL-3.0-only
+// Copyright (C) 2026 Paul <abonnementspaul (at) gmail.com>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, version 3.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+use crate::dev_println;
+use crate::gui_frontend::MainApplication;
+use crate::gui_frontend::ui_components::show_about_dialog;
+use gtk::gio::SimpleAction;
+use gtk::glib;
+use gtk::glib::clone;
+use gtk::prelude::*;
+
+pub fn setup_app_actions(
+    application: &MainApplication,
+    refresh_app_list_action: &SimpleAction,
+    refresh_achievements_list_action: &SimpleAction,
+    reset_all_stats_and_achievements_action: &SimpleAction,
+    select_all_apps_action: &SimpleAction,
+    unselect_all_apps_action: &SimpleAction,
+    unlock_all_apps_action: &SimpleAction,
+    lock_all_apps_action: &SimpleAction,
+    export_selected_progress_action: &SimpleAction,
+    import_progress_action: &SimpleAction,
+) {
+    let action_show_about_dialog = SimpleAction::new("about", None);
+    action_show_about_dialog.connect_activate(clone!(
+        #[weak]
+        application,
+        move |_, _| {
+            show_about_dialog(application.active_window().as_ref());
+        }
+    ));
+
+    let action_quit = SimpleAction::new("quit", None);
+    action_quit.connect_activate(clone!(
+        #[weak]
+        application,
+        move |_, _| {
+            application.quit();
+        }
+    ));
+
+    application.add_action(select_all_apps_action);
+    application.add_action(unselect_all_apps_action);
+    application.add_action(unlock_all_apps_action);
+    application.add_action(lock_all_apps_action);
+    application.add_action(export_selected_progress_action);
+    application.add_action(import_progress_action);
+    application.add_action(refresh_app_list_action);
+    application.add_action(refresh_achievements_list_action);
+    application.add_action(reset_all_stats_and_achievements_action);
+    application.add_action(&action_show_about_dialog);
+    application.add_action(&action_quit);
+
+    // Snap-only: re-exec after forgetting the grant — resets the locator's
+    // cached paths and respawns the orchestrator, avoiding an in-session swap.
+    #[cfg(unix)]
+    {
+        let action_change_steam_folder = SimpleAction::new("change-steam-folder", None);
+        action_change_steam_folder.connect_activate(clone!(
+            #[weak]
+            application,
+            move |_, _| {
+                crate::utils::snap::forget_saved_install();
+                crate::backend::orchestrator_client::shutdown_and_wait();
+                match std::env::current_exe() {
+                    Ok(exe) => {
+                        use std::os::unix::process::CommandExt;
+                        let err = std::process::Command::new(exe).exec();
+                        eprintln!("[CLIENT] Failed to restart for folder change: {err}");
+                        application.quit();
+                    }
+                    Err(e) => eprintln!("[CLIENT] current_exe failed: {e}"),
+                }
+            }
+        ));
+        application.add_action(&action_change_steam_folder);
+    }
+
+    application.set_accels_for_action("app.refresh_app_list", &["F5"]);
+    application.set_accels_for_action("app.refresh_achievements_list", &["F5"]);
+}
+
+pub fn set_app_action_enabled(application: &MainApplication, action_name: &str, enabled: bool) {
+    if let Some(action) = application.lookup_action(action_name) {
+        action
+            .downcast_ref::<SimpleAction>()
+            .unwrap()
+            .set_enabled(enabled);
+    } else {
+        dev_println!("CLIENT", "Action not found {action_name}");
+    }
+}
+
+/// A refresh cancels a running timed unlock, and a language change goes through a
+/// refresh, so both come off the menu while the timed view is up.
+pub fn set_timed_unlock_actions_enabled(application: &MainApplication, enabled: bool) {
+    set_app_action_enabled(application, "refresh_achievements_list", enabled);
+    set_app_action_enabled(application, "clear_all_stats_and_achievements", enabled);
+    set_app_action_enabled(application, "achievement-language", enabled);
+}
+
+pub fn set_selection_actions_enabled(application: &MainApplication, enabled: bool) {
+    set_app_action_enabled(application, "unlock_all_apps", enabled);
+    set_app_action_enabled(application, "lock_all_apps", enabled);
+    set_app_action_enabled(application, "export_selected_progress", enabled);
+}
+
+pub fn set_bulk_actions_enabled(application: &MainApplication, enabled: bool) {
+    set_app_action_enabled(application, "unlock_all_apps", enabled);
+    set_app_action_enabled(application, "lock_all_apps", enabled);
+    set_app_action_enabled(application, "export_selected_progress", enabled);
+    set_app_action_enabled(application, "import_progress", enabled);
+}

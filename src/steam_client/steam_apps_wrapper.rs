@@ -1,0 +1,46 @@
+// SPDX-License-Identifier: GPL-3.0-only
+// Copyright (C) 2026 Paul <abonnementspaul (at) gmail.com>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, version 3.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+use crate::steam_client::steam_apps_vtable::ISteamApps;
+use std::rc::Rc;
+
+pub struct SteamApps {
+    inner: Rc<SteamAppsInner>,
+}
+
+struct SteamAppsInner {
+    ptr: *mut ISteamApps,
+}
+
+impl SteamApps {
+    pub unsafe fn from_raw(ptr: *mut ISteamApps) -> Self {
+        Self {
+            inner: Rc::new(SteamAppsInner { ptr }),
+        }
+    }
+
+    pub fn get_current_game_language(&self) -> String {
+        unsafe {
+            let vtable = (*self.inner.ptr)
+                .vtable
+                .as_ref()
+                .expect("Null ISteamApps vtable");
+            let lang_ptr = (vtable.get_current_game_language)(self.inner.ptr);
+            std::ffi::CStr::from_ptr(lang_ptr)
+                .to_string_lossy()
+                .into_owned()
+        }
+    }
+}
